@@ -12,75 +12,81 @@ class HomeView extends GetView<HomeController> {
   const HomeView({Key? key}) : super(key: key);
   @override
   Widget build(BuildContext context) {
+    final homeController = Get.find<HomeController>();
     return Scaffold(
-      body: Padding(
-        padding: EdgeInsets.symmetric(horizontal: 20.w),
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.start,
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            SizedBox(height: 54.h),
-            Row(
+      body: Column(
+        mainAxisAlignment: MainAxisAlignment.start,
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Padding(
+            padding: EdgeInsets.symmetric(horizontal: 20),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                Expanded(
-                  child: Text(
-                    'Hi, David',
-                    style: GoogleFonts.montserrat(
-                      fontSize: 30.sp,
-                      fontWeight: FontWeight.w600,
+                SizedBox(height: 54.h),
+                Row(
+                  children: [
+                    Expanded(
+                      child: Text(
+                        'Hi, David',
+                        style: GoogleFonts.montserrat(
+                          fontSize: 30.sp,
+                          fontWeight: FontWeight.w600,
+                        ),
+                      ),
                     ),
-                  ),
+                    Image.asset(
+                      TImages.profilePic,
+                      fit: BoxFit.cover,
+                      height: 50.h,
+                      width: 50.h,
+                    )
+                  ],
                 ),
-                Image.asset(
-                  TImages.profilePic,
-                  fit: BoxFit.cover,
-                  height: 50.h,
-                  width: 50.h,
-                )
-              ],
-            ),
-            SizedBox(height: 9.h),
-            Text(
-              'Explore the world',
-              style: GoogleFonts.inter(
-                fontSize: 20.sp,
-                fontWeight: FontWeight.w400,
-                color: Color(0xff888888),
-              ),
-            ),
-            SizedBox(height: 38.h),
-            const CustomSearchbar(),
-            SizedBox(height: 42.h),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
+                SizedBox(height: 9.h),
                 Text(
-                  "Popular places",
-                  style: GoogleFonts.poppins(
+                  'Explore the world',
+                  style: GoogleFonts.inter(
                     fontSize: 20.sp,
-                    fontWeight: FontWeight.w600,
-                    color: Color(0xff2F2F2F),
-                  ),
-                ),
-                Text(
-                  "View all",
-                  style: GoogleFonts.poppins(
-                    fontSize: 16.sp,
-                    fontWeight: FontWeight.w600,
+                    fontWeight: FontWeight.w400,
                     color: Color(0xff888888),
                   ),
                 ),
+                SizedBox(height: 38.h),
+                const CustomSearchbar(),
+                SizedBox(height: 42.h),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Text(
+                      "Popular places",
+                      style: GoogleFonts.poppins(
+                        fontSize: 20.sp,
+                        fontWeight: FontWeight.w600,
+                        color: Color(0xff2F2F2F),
+                      ),
+                    ),
+                    Text(
+                      "View all",
+                      style: GoogleFonts.poppins(
+                        fontSize: 16.sp,
+                        fontWeight: FontWeight.w600,
+                        color: Color(0xff888888),
+                      ),
+                    ),
+                  ],
+                ),
+                SizedBox(height: 40.h),
               ],
             ),
-            SizedBox(height: 40.h),
-            Container(
-              color: Colors.blueAccent,
-              width: double.infinity,
-              height: 160.h,
-              child: CustomTabsBar(),
-            ),
-          ],
-        ),
+          ),
+          Container(
+            color: Colors.blueAccent,
+            width: double.infinity,
+            height: 64.h,
+            child: CustomTabsBar(homeController: homeController),
+          ),
+        ],
       ),
     );
   }
