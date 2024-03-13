@@ -1,9 +1,9 @@
 import 'package:get/get.dart';
 
-import '../modules/contact/bindings/contact_binding.dart';
-import '../modules/contact/views/contact_view.dart';
-import '../modules/home/bindings/home_binding.dart';
-import '../modules/home/views/home_view.dart';
+import '../presentation/contact/bindings/contact_binding.dart';
+import '../presentation/contact/views/contact_view.dart';
+import '../presentation/home/bindings/home_binding.dart';
+import '../presentation/home/views/home_view.dart';
 
 part 'app_routes.dart';
 

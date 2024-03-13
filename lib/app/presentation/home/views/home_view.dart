@@ -3,8 +3,9 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:travel_app/app/modules/home/controllers/home_controller.dart';
+import 'package:travel_app/app/presentation/home/controllers/home_controller.dart';
 import 'package:travel_app/app/utils/constants/image_strings.dart';
+import 'package:travel_app/app/widgets/banner_cards.dart';
 import 'package:travel_app/app/widgets/custom_searchbar.dart';
 import 'package:travel_app/app/widgets/custom_tabs.dart';
 
@@ -14,6 +15,7 @@ class HomeView extends GetView<HomeController> {
   Widget build(BuildContext context) {
     final homeController = Get.find<HomeController>();
     return Scaffold(
+      resizeToAvoidBottomInset: false,
       body: Column(
         mainAxisAlignment: MainAxisAlignment.start,
         crossAxisAlignment: CrossAxisAlignment.start,
@@ -81,10 +83,17 @@ class HomeView extends GetView<HomeController> {
             ),
           ),
           Container(
-            color: Colors.blueAccent,
+            // color: Colors.blueAccent,
             width: double.infinity,
             height: 64.h,
             child: CustomTabsBar(homeController: homeController),
+          ),
+          SizedBox(height: 20.h),
+          Container(
+            color: Colors.blueAccent,
+            width: double.infinity,
+            height: 280.h,
+            child: const BannerCards(),
           ),
         ],
       ),
